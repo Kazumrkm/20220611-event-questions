@@ -8,5 +8,3 @@ for num in range(1, 101):
     if string == '':
         string = str(num)
     # ここまで記述
-
-    print(string)

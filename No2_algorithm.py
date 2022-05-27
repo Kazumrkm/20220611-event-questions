@@ -1,3 +1,6 @@
+from socket import AF_AAL5
+
+
 def main():
     # 昇順にソートされた配列
     sorted_array = [1, 2, 3, 5, 12, 7890, 12345]

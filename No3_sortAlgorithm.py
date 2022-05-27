@@ -15,16 +15,20 @@ def sort(array):
     pivot = array[0]
 
     # ここから記述
-    left = []
-    right = []
-    l_num = 0 # 先頭
-    r_num = len(array)-1 # 末端
+    left = [] # 前半の配列
+    right = [] # 後半の配列
+    l_num = 0 # 探索位置（先頭から末端へ）
+    r_num = len(array)-1 # 探索位置（末端から先頭へ）
 
     for i in range(len(array)):
+        
+        # 入れ替え操作不要な場合、探索位置を一つ中央側へ
         if pivot > array[l_num]:
             l_num += 1
         elif pivot < array[r_num]:
             r_num -= 1
+
+        # 入れ替え操作　→ 　それぞれ探索位置を一つ中央側へ
         else:
             l = array[l_num]
             array[l_num] = array[r_num]
@@ -32,11 +36,14 @@ def sort(array):
             l_num += 1
             r_num -= 1
 
+        # 探索位置（先頭側と末端側）が入れ替わったら終了
         if r_num < l_num:
             break
+
     left = array[0:l_num]
     right = array[l_num:len(array)]
 
+    # 配列が空でなければ、分かれたそれぞれでsort（空の場合はエラー）
     if left != []:
         left = sort(left)
     if right != []:

@@ -1,6 +1,3 @@
-from socket import AF_AAL5
-
-
 def main():
     #ランダムに並べられた重複のない整数の配列
     array = [5, 4, 6, 2, 1, 9, 8, 3, 7, 10]
@@ -29,9 +26,9 @@ def sort(array):
         elif pivot < array[r_num]:
             r_num -= 1
         else:
-            p = array[l_num]
+            l = array[l_num]
             array[l_num] = array[r_num]
-            array[r_num] = p
+            array[r_num] = l
             l_num += 1
             r_num -= 1
 
